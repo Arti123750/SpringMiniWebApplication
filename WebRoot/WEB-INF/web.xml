@@ -16,7 +16,7 @@
 	<servlet-mapping>
 		<servlet-name>sdnext</servlet-name>
 		<url-pattern>*.html</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> 
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

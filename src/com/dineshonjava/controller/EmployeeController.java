@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dineshonjava.bean.EmployeeBean;
+import com.dineshonjava.bean.LoginCredentialsBean;
 import com.dineshonjava.model.Employee;
 import com.dineshonjava.service.EmployeeService;
 
@@ -48,6 +49,35 @@ public class EmployeeController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("employees",  prepareListofBean(employeeService.listEmployeess()));
 		return new ModelAndView("addEmployee", model);
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView LoginEmployee(@ModelAttribute("command")  LoginCredentialsBean loginCredentialsBean,
+			BindingResult result) {
+		
+		return new ModelAndView("login");
+	}
+	
+	@RequestMapping(value = "/checkCreds", method = RequestMethod.POST)
+	public ModelAndView saveEmployee(@ModelAttribute("command")  LoginCredentialsBean loginCredentialsBean, 
+			BindingResult result) {
+		
+		if(loginCredentialsBean.getUserName().equals(123)&&loginCredentialsBean.getPassword().equals("pass@123")){
+			
+			return new ModelAndView("welcom");
+		}
+		else{
+			return new ModelAndView("failure");
+		}
+		
+		
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public ModelAndView LogoutEmployee(@ModelAttribute("command")  EmployeeBean employeeBean,
+			BindingResult result) {
+		
+		return new ModelAndView("logout");
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)

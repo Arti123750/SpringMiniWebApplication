@@ -10,5 +10,7 @@
     <h2>Spring3MVC with Hibernate3 CRUD Example using Annotations</h2>
     <h2>1. <a href="employees.html">List of Employees</a></h2>
     <h2>2. <a href="add.html">Add Employee</a></h2>
+ 	<h2>3. <a href="login.html">Login</a></h2>
+ 	<h2>4.<a href="logout.html">Logout</a></h2>
   </body>
 </html>
